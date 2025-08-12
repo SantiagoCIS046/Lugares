@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1 id="name"></h1>
+      <h2 id="phone"></h2>
+      <h3 id="web"></h3>
+    </div>
+
+    <div>
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Telefono</th>
+            <th>web</th>
+            <th>Nickname</th>
+          </tr>
+        </thead>
+        <tbody id="reg"></tbody>
+      </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        let res = await axios.get("https://jsonplaceholder.typicode.com/users");
+        console.log(res);
+        /* document.getElementById("name").textContent= res.data[0].name
+            document.getElementById("phone").textContent= res.data[0].phone
+            document.getElementById("web").textContent= res.data[0].website */
+
+        /* res.data.forEach((item, i) =>{
+                document.getElementById("reg").innerHTML+=`
+                    <tr class="fila">
+                        <td>${item.address.city}</td>
+                        <td>${item.name}</td> 
+                        <td>${item.phone}</td> 
+                        <td>${item.website}</td> 
+                        <td>${item.username}</td>     
+                    </tr>
+                `
+            } ) */
+
+        res.data.forEach((item, i) => {
+          let tr = document.createElement("tr");
+          let td1 = document.createElement("td");
+          td1.textContent = item.id;
+          let td2 = document.createElement("td");
+          td2.textContent = item.name;
+          if (item.name.length > 13) {
+            td2.style.color = "red";
+          } else {
+            td2.style.color = "pink";
+          }
+          let td3 = document.createElement("td");
+          td3.textContent = item.phone;
+          let td4 = document.createElement("td");
+          td4.textContent = item.website;
+          let td5 = document.createElement("td");
+          td5.textContent = item.username;
+          let td6 = document.createElement("td");
+          let butEditar = document.createElement("button");
+          butEditar.textContent = "📝";
+          let butEliminar = document.createElement("button");
+          butEliminar.textContent = "❌";
+          td6.appendChild(butEditar);
+          td6.appendChild(butEliminar);
+          tr.appendChild(td1);
+          tr.appendChild(td2);
+          tr.appendChild(td3);
+          tr.appendChild(td4);
+          tr.appendChild(td5);
+          tr.appendChild(td6);
+          document.getElementById("reg").appendChild(tr);
+        });
+      });
+    </script>
+
+    <style>
+      .tabla {
+        border: 1px solid red;
+      }
+      .fila {
+        border: 2px solid green;
+        padding: 5px;
+      }
+    </style>
+  </body>
+</html>

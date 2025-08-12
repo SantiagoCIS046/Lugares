@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lugares del Mundo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="detalles.html" />
+  </head>
+  <body>
+    <div class="tittle">
+      <h1>Lugares del Mundo</h1>
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active-filter" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="favorites">Favoritos</button>
+      <button class="filter-btn" data-filter="ciudad">Ciudades</button>
+      <button class="filter-btn" data-filter="naturaleza">Naturaleza</button>
+      <button class="filter-btn" data-filter="historia">Históricos</button>
+    </div>
+
+    <div id="root" class="container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
