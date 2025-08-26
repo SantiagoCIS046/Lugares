@@ -1,3 +1,16 @@
+.detalles-body {
+  font-family: "Arial", sans-serif;
+  background: #0077b6;
+  background: radial-gradient(
+    circle,
+    rgba(0, 119, 182, 0.85) 39%,
+    rgba(162, 210, 255, 0.94) 77%
+  );
+
+  margin: 0;
+  padding: 20px;
+}
+
 .detail-container {
   max-width: 1000px;
   margin: 0 auto;
