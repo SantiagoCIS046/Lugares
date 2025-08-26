@@ -26,6 +26,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Mostrar los detalles
     renderDetail(lugarSeleccionado);
+
+    // Establecer el color de fondo
+    const detailContainer = document.querySelector(".detail-container");
+    const primaryColor = lugarSeleccionado.categoria.colorPrimario;
+    const secondaryColor = lugarSeleccionado.categoria.colorSecundario;
+    detailContainer.style.background = `linear-gradient(to bottom right, ${primaryColor}, ${secondaryColor})`;
   } catch (error) {
     console.error("Error al cargar los datos:", error);
     window.location.href = "index.html";

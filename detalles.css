@@ -1,12 +1,11 @@
 .detalles-body {
   font-family: "Arial", sans-serif;
-  background: #0077b6;
+  background: #07374f;
   background: radial-gradient(
     circle,
-    rgba(0, 119, 182, 0.85) 39%,
-    rgba(162, 210, 255, 0.94) 77%
+    rgba(7, 55, 79, 0.85) 39%,
+    rgba(0, 28, 46, 0.94) 77%
   );
-
   margin: 0;
   padding: 20px;
 }
