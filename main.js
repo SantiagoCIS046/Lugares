@@ -1,7 +1,21 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  let lugares = await axios.get("./lugares.json");
+  let lugares;
+  try {
+    // Intentar cargar desde localStorage primero
+    lugares = JSON.parse(localStorage.getItem("lugares"));
 
-  console.log(lugares.data);
+    // Si no hay datos en localStorage, cargar desde el archivo JSON
+    if (!lugares) {
+      const response = await axios.get("./lugares.json");
+      lugares = response.data;
+      localStorage.setItem("lugares", JSON.stringify(lugares));
+    }
+  } catch (error) {
+    console.error("Error al cargar los datos:", error);
+    return;
+  }
+
+  console.log(lugares);
 
   let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
@@ -106,5 +120,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
-  renderPlaces(lugares.data);
+  renderPlaces(lugares);
 });

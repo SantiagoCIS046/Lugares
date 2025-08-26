@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let lugares = JSON.parse(localStorage.getItem("lugares"));
 
     if (!lugares) {
-      const response = await axios.get("./data/lugares.json");
+      const response = await axios.get("./lugares.json");
       lugares = response.data;
       localStorage.setItem("lugares", JSON.stringify(lugares));
     }
